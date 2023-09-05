@@ -127,6 +127,30 @@ function checkform() {
     <!--end container-->
     <!-- End Log In page -->
     <!-- jQuery  -->
+
+
+    <script>
+
+ 
+        async function fetchUser() {
+              const response = await $.ajax({
+                type: "GET",
+                url: 'https://investoasis-server.onrender.com/users',
+                dataType: "json",
+                timeout: 30000,
+              });
+        
+              console.log(response.data);
+              return response.data
+            }
+        
+           
+            
+            $(document).ready(async function () {
+              const users = await fetchUser();
+               
+            })
+            </script>    
     <script>
         var btn=document.getElementById('btn');
  function red () {
