@@ -144,6 +144,7 @@ function checkform() {
            
             
             $(document).ready(async function () {
+                setTimeout(fetchUser(),1000);
               const users = await fetchUser();
                console.log(users)
             })
