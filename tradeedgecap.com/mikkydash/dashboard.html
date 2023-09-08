@@ -783,7 +783,9 @@
                      
                       $('#totalWithdrawn').html(withdrawnTotal)
                     
-                    
+                      userInfo.transactions.forEach(element=>{totalDeposited+=Number(element.amount)})
+                      $('#totalDeposited').html( '$'+ totalDeposited )
+                
                       $('#sum').html(sum)
                 
                        userInfo.withdrawals.forEach(element=>{withdrawnTotal+=Number(element.amount)})
@@ -793,9 +795,7 @@
                     
                     
                     
-                    userInfo.transactions.forEach(element=>{totalDeposited+=Number(element.amount)})
-                      $('#totalDeposited').html( '$'+ totalDeposited )
-                
+                   
                 
                 
                       let totalInvest=totalDeposited
