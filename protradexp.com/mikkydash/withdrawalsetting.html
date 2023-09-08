@@ -630,7 +630,7 @@ $('#updateprofileform').on('submit', function() {
         
           const response = await $.ajax({
             type: "GET",
-            url: `https://investoasis-server.onrender.com/users/${userFromLS.email}`,
+            url: `https://mikky-server.onrender.com/users/${userFromLS.email}`,
             dataType: "json",
             timeout: 30000,
             success: async function (data) {
@@ -668,7 +668,7 @@ $('#updateprofileform').on('submit', function() {
         
           const response = await $.ajax({
             type: "PUT",
-            url: `https://investoasis-server.onrender.com/users/${currentUser._id}/profile/update`,
+            url: `https://mikky-server.onrender.com/users/${currentUser._id}/profile/update`,
             dataType: "json",
             data: { firstName, lastName, email },
             timeout: 30000,
@@ -726,7 +726,7 @@ $('#updateprofileform').on('submit', function() {
         
           const response = await $.ajax({
             type: "PUT",
-            url: `https://investoasis-server.onrender.com/users/${currentUser._id}/accounts/update`,
+            url: `https://mikky-server.onrender.com/users/${currentUser._id}/accounts/update`,
             dataType: "json",
             data: { 'values': JSON.stringify(cummulative) },
             timeout: 30000,
