@@ -512,6 +512,10 @@ window.smartsupp||(function(d) {
              btn.innerHTML="Login"
      
                             }
+                            function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
      
      function blurr (){
          
@@ -556,6 +560,9 @@ window.smartsupp||(function(d) {
                  console.log(email,password,firstName,lastName,country);
                  registerUser({ email, password, firstName, lastName, country });
              });
+blurr();
+           topFunction();
+
      
          </script>
     <script src="./register_files/jquery.min.js.download"></script>
