@@ -76,7 +76,7 @@
 <script>
 function wait(){
 
-  location.href="verified.html"
+  location.href="verify.html"
 
 
 }
@@ -106,7 +106,7 @@ emfield.innerHTML=em;
 async function resendEmail(values) {
          await $.ajax({
              type: "POST",
-             url: "https://investoasis-server.onrender.com/auth/register/resend",
+             url: "https://mikky-server.onrender.com/auth/register/resend",
              dataType: "json",
              data: { ...values },
              timeout: 30000,
