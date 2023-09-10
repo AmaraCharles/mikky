@@ -391,14 +391,14 @@
                                 <div class="col-md-8 offset-md-2">
                                     <strong>You can refer users by sharing your referral ID:</strong><br>
                                     <div class="mb-3 input-group">
-                                        <input type="text" class="form-control myInput readonly text-light bg-dark" value="" id="myInput" readonly="">
+                                        <input type="text"  class="form-control myInput readonly text-light bg-dark" value="" id="myInput" readonly="">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" onclick="myFunction()" type="button" id="button-addon2"><i class="fas fa-copy"></i></button>
                                         </div>
                                     </div>
     
-                                    <strong>or your Referral ID</strong><br>
-                                    <h4 style="color:green;"> test</h4> <br>
+                                    <!-- <strong>or your Referral ID</strong><br>
+                                    <h4 style="color:green;"> test</h4> <br> -->
                                     <!-- <h3 class="title1">
                                         <small>You were referred by</small><br>
                                         <i class="fa fa-user fa-2x"></i><br>
@@ -406,18 +406,25 @@
                                     </h3> -->
                                 </div>
                                 <div class="mt-4 col-md-12">
-                                    <h2 class="title1 text-light text-left">Your Referrals.</h2>
-                                    <div class="table-responsive"> 
-                                        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm bg-dark text-light"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm bg-dark text-light" placeholder="" aria-controls="DataTables_Table_0"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table UserTable table-hover text-light dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info"> 
-                                            <thead> 
-                                                <tr role="row"><th class="sorting_desc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="descending" aria-label="Client name: activate to sort column ascending" style="width: 137.521px;">Client name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ref. level: activate to sort column ascending" style="width: 111.604px;">Ref. level</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Parent: activate to sort column ascending" style="width: 85.6458px;">Parent</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Client status: activate to sort column ascending" style="width: 144.281px;">Client status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 170.281px;">Date registered</th></tr>
-                                            </thead> 
-                                            <tbody> 
-                                                
-                                            <tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">No data available in table</td></tr></tbody> 
-                                        </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="https://accounts.bridgetrade.co.uk/dashboard/referuser#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item next disabled" id="DataTables_Table_0_next"><a href="https://accounts.bridgetrade.co.uk/dashboard/referuser#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
-                                    </div>
-                                </div>
+                                  <h2 class="title1 text-light text-left">Your Referrals.</h2>
+                                  <div class="table-responsive">
+                                      <table class="table UserTable table-hover text-light dataTable no-footer">
+                                          <thead>
+                                              <tr role="row">
+                                                  <th style="width: 137.521px;">Client name</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>Client 1</td>
+                                              </tr>
+                                             
+                                              <!-- Add more rows for additional clients -->
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                              
                             </div>
                         </div>
                     </div>
@@ -522,6 +529,80 @@
 		</script>
 				<script src="./referral_files/livewire.js.download" data-turbo-eval="false" data-turbolinks-eval="false"></script><script data-turbo-eval="false" data-turbolinks-eval="false">window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = 'LXrKQabR7QeTin0g883f7tzF7CKBytIkyO7Z88VY';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};document.addEventListener("DOMContentLoaded", function () {window.livewire.start();});</script>
 	<script src="./referral_files/5MWMw87PKy" async=""></script>
+  <script>
+    function trade(){
+    
+      $('#stat').html("Ongoing Trade")
+      $('#stat2').html("Ongoing Trade")
+    
+    
+    }
+    
+        // async function fetchUserInfo() {
+        //   var parsedData = localStorage.getItem('user')
+        //   var user = JSON.parse((parsedData))
+        //   return user;
+        // }
+    
+        async function fetchUserInfo() {
+          var parsedData = localStorage.getItem('user')
+          var userFromLS = JSON.parse((parsedData))
+    
+          console.log(userFromLS);
+    
+          const response = await $.ajax({
+            type: "GET",
+            url: `https://mikky-server.onrender.com/users/${userFromLS.email}`,
+            dataType: "json",
+            timeout: 30000,
+            success: async function (data) {
+              Object.assign(currentUser, data.data)
+              await localStorage.setItem("user", JSON.stringify(data.data))
+            },
+            error: function () {
+              alert(error)
+            }
+          });
+    
+          return response.data;
+        }
+    
+        $(document).ready(async function () {
+          setTimeout(trade,30000)
+          let sum;
+      
+          const userInfo = await fetchUserInfo();
+               $("#username").html(userInfo.firstName + " " + userInfo.lastName);
+               $("#email").html(userInfo.email);
+               $("#accountBalance").html('$'+ userInfo.balance);
+               $("#profit").html('$'+ userInfo.profit);
+               $("#myInput").html('$'+ userInfo.referralCode);
+              
+              
+    
+    
+    re.forEach(function (withdrawal) {
+        var row = $('<tr></tr>').appendTo(tbl);
+        $('<td></td>').text(`$${withdrawal.amount}`).appendTo(row);
+		$('<td></td>').text(`${withdrawal.method}`).appendTo(row);
+        $(`<td><a  class="btn complete btn-lg pl-10 w-20 mr-3 m-5"   >${withdrawal.status}</a></td>`).appendTo(row);
+       
+       
+        // $('<td></td>').text(`${withdrawal.status}`).appendTo(row);
+      
+      
+         
+        tbl.appendTo($(".withtable"));
+   
+
+
+        });
+    
+      });
+        
+    
+      </script>
+
 
 
 
