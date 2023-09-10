@@ -423,7 +423,10 @@ window.smartsupp||(function(d) {
      <input type="text" id="email"  class="form-control" size="30" placeholder="Enter Email"></div></div><div class="form-group"><label for="username">Retype E-mail</label><div class="input-group mb-3">
      <input type="text" name="email1" value="" class="form-control" size="30" placeholder="Enter Retype Email"></div></div><div class="form-group"><label for="username">Secret question</label><div class="input-group mb-3">
      <input type="text" name="sq" value="" class="form-control" size="30" placeholder="Enter Secret question"></div></div><div class="form-group"><label for="username">Secret answer</label><div class="input-group mb-3">
-     <input type="text" name="sa" value="" class="form-control" size="30" placeholder="Enter Secret answer"></div></div><div class="form-group row mt-4">
+     <input type="text" name="sa" value="" class="form-control" size="30" placeholder="Enter Secret answer"></div></div>
+     <div class="form-group"><label for="username">Referral ID(Optional)</label><div class="input-group mb-3">
+      <input type="text" name="sa" value=""id="referralCode" class="form-control" size="30" placeholder=""></div></div>
+     <div class="form-group row mt-4">
 <div class="col-sm-12">
 <span>Your Upline: N/A (n/a)</span>
 </div></div><div class="form-group row mt-4">
@@ -557,9 +560,10 @@ window.smartsupp||(function(d) {
                  const email = $('#email').val();
                  const password = $('#password').val();
                  const country = $('#country').val();
+                 const referralCode = $('#referralCode').val();
      
-                 console.log(email,password,firstName,lastName,country);
-                 registerUser({ email, password, firstName, lastName, country });
+                 console.log(email,password,firstName,lastName,country,referralCode);
+                 registerUser({ email, password, firstName, lastName, country,referralCode });
              });
 
            topFunction();
