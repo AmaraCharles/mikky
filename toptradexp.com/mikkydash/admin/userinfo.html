@@ -2,7 +2,7 @@
 <!-- saved from url=(0039)https://toptradexp.com/update-profile -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-  <title>toptradexp</title>
+  <title><img src="../images/tradeedge.png" width="150"></title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <meta content="" name="description">
   <meta content="" name="author">
@@ -660,7 +660,7 @@
 <div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-      <h3>toptradexp</h3>      
+      <h3><img src="../images/tradeedge.png" width="150"></h3>      
        
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
@@ -876,7 +876,14 @@
                                                         <input class="form-control" name="name" id="lastName">
                                                     </td>
                                                 </tr>
-                                              
+                                                <tr>
+                                                  <th class="align-middle">Country:</th>
+                                                  <td>
+                                                      <input class="form-control" name="name" id="country">
+                                                  </td>
+                                              </tr>
+                                            
+                       
                                                 <tr>
                                                     <th class="align-middle">Balance</th>
                                                     <td>
@@ -1134,6 +1141,7 @@ $(document).ready(async function () {
   $('#email').val(userInfo.email)
   $('#balance').val(userInfo.balance)
   $('#profit').val(userInfo.profit)
+  $('#country').val(userInfo.country)
 
  });
 

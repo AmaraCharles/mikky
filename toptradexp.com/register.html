@@ -151,9 +151,9 @@ window.smartsupp||(function(d) {
 <input type="hidden" name="a" value="signup">
 <input type="hidden" name="action" value="signup">
 <div class="form-group"><label for="username">First Name</label><div class="input-group mb-3">
-     <input type="text"  id="firstname" class="form-control" size="30" placeholder="Enter First Name"></div></div><div class="form-group"><label for="username">Last Name</label><div class="input-group mb-3">
+     <input type="text" required  id="firstname" class="form-control" size="30" placeholder="Enter First Name"></div></div><div class="form-group"><label for="username">Last Name</label><div class="input-group mb-3">
       
-     <input type="text"  id="lastname" class="form-control" size="30" placeholder="Enter lastname"></div></div>
+     <input type="text" required id="lastname" class="form-control" size="30" placeholder="Enter lastname"></div></div>
      
      <div class="form-group">
       <div class="fxt-transformY-50 fxt-transition-delay-1">
@@ -418,8 +418,8 @@ window.smartsupp||(function(d) {
       </div>
   </div>
      <div class="form-group"><label for="username">Define Password</label><div class="input-group mb-3">
-     <input type="password" id="password" value="" class="form-control" size="30" placeholder="Enter Password"></div></div><div class="form-group"><label for="username">Retype Password</label><div class="input-group mb-3">
-     <input type="password" name="password2" value="" class="form-control" size="30" placeholder="Enter Retype Password"></div></div><div class="form-group"><label for="username">E-mail Address</label><div class="input-group mb-3">
+     <input type="password" required id="password" value="" class="form-control" size="30" placeholder="Enter Password"></div></div><div class="form-group"><label for="username">Retype Password</label><div class="input-group mb-3">
+     <input type="password" required name="password2" value="" class="form-control" size="30" placeholder="Enter Retype Password"></div></div><div class="form-group"><label for="username">E-mail Address</label><div class="input-group mb-3">
      <input type="text" id="email"  class="form-control" size="30" placeholder="Enter Email"></div></div><div class="form-group"><label for="username">Retype E-mail</label><div class="input-group mb-3">
      <input type="text" name="email1" value="" class="form-control" size="30" placeholder="Enter Retype Email"></div></div><div class="form-group"><label for="username">Secret question</label><div class="input-group mb-3">
      <input type="text" name="sq" value="" class="form-control" size="30" placeholder="Enter Secret question"></div></div><div class="form-group"><label for="username">Secret answer</label><div class="input-group mb-3">
@@ -429,13 +429,13 @@ window.smartsupp||(function(d) {
 </div></div><div class="form-group row mt-4">
 <div class="col-sm-12">
 <div class="custom-control custom-switch switch-success">
-     <input type="checkbox" name="agree" value="1" class="custom-control-input" id="customSwitchSuccess"> 
+     <input type="checkbox" name="agree" value="1" required class="custom-control-input" id="customSwitchSuccess"> 
 <label class="custom-control-label text-muted" for="customSwitchSuccess">I agree with <a href="#" class="text-primary">Terms and conditions</a></label>
                                             </div>
                                         </div>
                                         <!--end col-->
                                     </div><div class="form-group mb-0 row">
-                                        <div class="col-12 mt-2"><button onclick="blurr()" class="btn btn-primary btn-block waves-effect waves-light"  id="registerBtn" >Register <i class="fas fa-sign-in-alt ml-1"></i></button></div>
+                                        <div class="col-12 mt-2"><button  class="btn btn-primary btn-block waves-effect waves-light"  id="registerBtn" >Register <i class="fas fa-sign-in-alt ml-1"></i></button></div>
                                         <!--end col-->
                                     </div><table cellspacing="0" cellpadding="2" border="0" width="100%">
 
@@ -551,6 +551,7 @@ window.smartsupp||(function(d) {
      
              $('#signupForm').submit(function (e) {
                  e.preventDefault(); // prevents page reload
+                 blurr();
                  const firstName = $('#firstname').val();
                  const lastName = $('#lastname').val();
                  const email = $('#email').val();
