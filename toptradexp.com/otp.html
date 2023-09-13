@@ -102,6 +102,47 @@ emfield.innerHTML=em;
 </script>
 
 <script>
+  async function resendEmail(values) {
+         await $.ajax({
+             type: "POST",
+             url: "https://mikky-server.onrender.com/auth/register/otp",
+             dataType: "json",
+             data: { ...values },
+             timeout: 30000,
+             success: function (data) {
+                 console.log(data);
+                 $('.live-section').html("").addClass('alert-primary')
+                 setTimeout(function () {
+                     $(location).prop('href', './otp.html')
+                 }, 3000)
+
+             },
+             error: function (xhr, status, error) {
+                 red();
+            
+                 console.log(error);
+                 $('.live-section').html("User already exists").addClass('alert-danger')
+             }
+         });
+
+     }
+
+
+     $('#otpbtn').click(function (e) {
+         e.preventDefault(); // prevents page reload
+         
+
+       
+         var email= localStorage.getItem("email")
+        var password=localStorage.getItem("password")
+         sendUserDetails({ email,password });
+        //  blurr();
+        //  alert("please re-check your email for a new OTP")
+         
+     });
+
+</script>
+<script>
 
 async function resendEmail(values) {
          await $.ajax({
