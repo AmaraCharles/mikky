@@ -2280,7 +2280,7 @@ jQuery(document).ready(function () {
         "Surname": "Lenkkeri"
     },
     {
-        "GivenName": "Evike",
+        "GivenName": "Emikky-server",
         "Surname": "Rigó"
     },
     {

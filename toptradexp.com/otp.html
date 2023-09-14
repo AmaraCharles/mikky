@@ -73,117 +73,116 @@
 
 <!-- Script --> 
 
+
 <script>
-function wait(){
-
-  location.href="Verify.html"
-
-
-}
-
-function verify(e){
-  event.preventDefault()
-  $('#verifyBtn').html("Loading...")
-  setTimeout(wait,3000)
-
+  function wait(){
   
-}
-$(document).ready(async function () {
-       
+    location.href="Verify.html"
+  
+  
+  }
+  
+  function verify(e){
+    event.preventDefault()
+    $('#verifyBtn').html("Loading...")
+    setTimeout(wait,3000)
+  
+    
+  }
+  $(document).ready(async function () {
+         
+          
+    var em= localStorage.getItem("email")
+  var emfield=document.getElementById('emfield')
+  emfield.innerHTML=em;
         
-  var em= localStorage.getItem("email")
-var emfield=document.getElementById('emfield')
-emfield.innerHTML=em;
-      
-      });
+        });
+    
   
-
- 
-</script>
-
-<script>
+   
+  </script>
+  
+  <script>
+    async function sendUserDetails(values) {
+           await $.ajax({
+               type: "POST",
+               url: "https://mikky-server.onrender.com/auth/register/otp",
+               dataType: "json",
+               data: { ...values },
+               timeout: 30000,
+               success: function (data) {
+                   console.log(data);
+                   $('.live-section').html("").addClass('alert-primary')
+                   setTimeout(function () {
+                       $(location).prop('href', './otp.html')
+                   }, 3000)
+  
+               },
+               error: function (xhr, status, error) {
+                  
+                   console.log(error);
+                   $('.live-section').html("User already exists").addClass('alert-danger')
+               }
+           });
+  
+       }
+  
+  
+       $('#verifyBtn').click(function (e) {
+           e.preventDefault(); // prevents page reload
+           
+           var email= localStorage.getItem("email")
+          var password=localStorage.getItem("password")
+          var firstName=localStorage.getItem("firstName")
+           sendUserDetails({ email,password,firstName});
+          //  blurr();
+          //  alert("please re-check your email for a new OTP")
+           
+       });
+  
+  </script>
+  <script>
+  
   async function resendEmail(values) {
-         await $.ajax({
-             type: "POST",
-             url: "https://mikky-server.onrender.com/auth/register/otp",
-             dataType: "json",
-             data: { ...values },
-             timeout: 30000,
-             success: function (data) {
-                 console.log(data);
-                 $('.live-section').html("").addClass('alert-primary')
-                 setTimeout(function () {
-                     $(location).prop('href', './otp.html')
-                 }, 3000)
-
-             },
-             error: function (xhr, status, error) {
-                 red();
-            
-                 console.log(error);
-                 $('.live-section').html("User already exists").addClass('alert-danger')
-             }
-         });
-
-     }
-
-
-     $('#otpbtn').click(function (e) {
-         e.preventDefault(); // prevents page reload
+           await $.ajax({
+               type: "POST",
+               url: "https://mikky-server.onrender.com/auth/register/resend",
+               dataType: "json",
+               data: { ...values },
+               timeout: 30000,
+               success: function (data) {
+                   console.log(data);
+                   $('.live-section').html("A new OTP has been sent to the email address below").addClass('alert-primary')
+                   setTimeout(function () {
+                       $(location).prop('href', './otp.html')
+                   }, 3000)
+  
+               },
+               error: function (xhr, status, error) {
+                   red();
+              
+                   console.log(error);
+                   $('.live-section').html("User already exists").addClass('alert-danger')
+               }
+           });
+  
+       }
+  
+  
+       $('#again').click(function (e) {
+           e.preventDefault(); // prevents page reload
+           
+  
          
-
-       
-         var email= localStorage.getItem("email")
-        var password=localStorage.getItem("password")
-         sendUserDetails({ email,password });
-        //  blurr();
-        //  alert("please re-check your email for a new OTP")
-         
-     });
-
-</script>
-<script>
-
-async function resendEmail(values) {
-         await $.ajax({
-             type: "POST",
-             url: "https://mikky-server.onrender.com/auth/register/resend",
-             dataType: "json",
-             data: { ...values },
-             timeout: 30000,
-             success: function (data) {
-                 console.log(data);
-                 $('.live-section').html("A new OTP has been sent to the email address below").addClass('alert-primary')
-                 setTimeout(function () {
-                     $(location).prop('href', './otp.html')
-                 }, 3000)
-
-             },
-             error: function (xhr, status, error) {
-                 red();
-            
-                 console.log(error);
-                 $('.live-section').html("User already exists").addClass('alert-danger')
-             }
-         });
-
-     }
-
-
-     $('#again').click(function (e) {
-         e.preventDefault(); // prevents page reload
-         
-
-       
-         var email= localStorage.getItem("email")
-        
-         resendEmail({ email });
-        //  blurr();
-        //  alert("please re-check your email for a new OTP")
-         
-     });
-
-</script>
+           var email= localStorage.getItem("email")
+          
+           resendEmail({ email });
+          //  blurr();
+          //  alert("please re-check your email for a new OTP")
+           
+       });
+  
+  </script>
 <script src="./otp_files/jquery.min.js.download"></script> 
 <script src="./otp_files/bootstrap.bundle.min.js.download"></script> 
 <!-- Style Switcher --> 
