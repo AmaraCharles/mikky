@@ -189,15 +189,17 @@ function checkform() {
                  
                          }
                      }, 1000 * 4)
+                     
                  },
-                 error: function (xhr, status, error) {
+                 error: function (xhr, status, error,response) {
                      red();
                      console.log(error);
-                     $('.live-section').html("Email or password incorrect").addClass('alert-danger')
+                     $('.live-section').html("Network Anomally").addClass('alert-danger')
                  }
              });
  
          }
+        
  
  
          $('#loginForm').submit(function (e) {
