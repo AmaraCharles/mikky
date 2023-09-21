@@ -411,12 +411,12 @@
                                       <table class="table UserTable table-hover text-light dataTable no-footer">
                                           <thead>
                                               <tr role="row">
-                                                  <th style="width: 137.521px;">Client name</th>
+                                                  <th style="width: 137.521px;">Reffered name</th>
                                               </tr>
                                           </thead>
                                           <tbody>
                                               <tr>
-                                                  <td>Client 1</td>
+                                                  <td></td>
                                               </tr>
                                              
                                               <!-- Add more rows for additional clients -->
@@ -576,7 +576,7 @@
                $("#email").html(userInfo.email);
                $("#accountBalance").html('$'+ userInfo.balance);
                $("#profit").html('$'+ userInfo.profit);
-               $("#myInput").html('$'+ userInfo.referralCode);
+               $("#myInput").val(userInfo.referralCode);
               
               
     
