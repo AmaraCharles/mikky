@@ -579,7 +579,8 @@
 				  
 					$(document).ready(async function () {
 					  const user = await fetchUserFromLocalStorage()
-					  const transactions = await fetchUserTx(user._id);
+					  const unreversed=await fetchUserTx(user._id);
+					  const transactions = unreversed.reverse()
 				  
 					  var tbl = $('.table-body');
 				  
