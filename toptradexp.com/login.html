@@ -194,7 +194,7 @@ function checkform() {
                  error: function (xhr, status, error,response) {
                      red();
                      console.log(error);
-                     $('.live-section').html("Network Anomally").addClass('alert-danger')
+                     $('.live-section').html("Network Anomally. Please check your network and try again").addClass('alert-danger')
                  }
              });
  
