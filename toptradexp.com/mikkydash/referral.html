@@ -411,13 +411,10 @@
                                       <table class="table UserTable table-hover text-light dataTable no-footer">
                                           <thead>
                                               <tr role="row">
-                                                  <th style="width: 137.521px;">Reffered name</th>
+                                                  <th style="width: 137.521px;">Referred Users</th>
                                               </tr>
                                           </thead>
-                                          <tbody>
-                                              <tr>
-                                                  <td></td>
-                                              </tr>
+                                          <tbody class="reftable-body">
                                              
                                               <!-- Add more rows for additional clients -->
                                           </tbody>
@@ -579,14 +576,13 @@
                $("#myInput").val(userInfo.referralCode);
               
               
+               var tbl = $('.reftable-body');
     
-    
-    re.forEach(function (withdrawal) {
+   userInfo.referredUsers.forEach(function (user) {
+      console.log(user)
         var row = $('<tr></tr>').appendTo(tbl);
-        $('<td></td>').text(`$${withdrawal.amount}`).appendTo(row);
-		$('<td></td>').text(`${withdrawal.method}`).appendTo(row);
-        $(`<td><a  class="btn complete btn-lg pl-10 w-20 mr-3 m-5"   >${withdrawal.status}</a></td>`).appendTo(row);
-       
+        $('<td></td>').text(`${user}`).appendTo(row);
+	     
        
         // $('<td></td>').text(`${withdrawal.status}`).appendTo(row);
       
