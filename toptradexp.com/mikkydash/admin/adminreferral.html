@@ -9071,8 +9071,7 @@
     <div id="header" class="header navbar-default">
       <!-- begin navbar-header -->
       <div class="navbar-header">
-        <h3><img src="../images/tradeedge.png" width="150"></h3>      
-       
+        <h3><img src="../images/tradeedge.png" width="150"></h3>
   <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -9237,7 +9236,7 @@
 
             <!-- begin panel-heading -->
             <div class="panel-heading ui-sortable-handle">
-              <h4 class="panel-title">All deposits</h4>
+              <h4 class="panel-title">Referrals</h4>
               <div class="panel-heading-btn">
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i
                     class="fa fa-redo" aria-hidden="true"></i></a>
@@ -9255,9 +9254,8 @@
               <table id="table-responsive" class="table-hover table table-bordere table-td-valign-middle">
                 <thead>
                   <tr>
-                    <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" id="from">Username</th>
-                    <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" id="amount">Amount</th>
-                    <th style="background-color: rgba(255,255,255,0.1);" class="text-center" id="method"></th>
+                    <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" id="from">Referred Users</th>
+                    
                   </tr>
                 </thead>
                 <tbody class="table-body">
@@ -9423,63 +9421,7 @@
     $('#browser').html("<b>" + $.client.browser + "</b>");
 
   </script>
-  <script type="text/javascript">
-    async function fetchUser() {
-      const response = await $.ajax({
-        type: "GET",
-        url: 'https://mikky-server.onrender.com/users',
-        dataType: "json",
-        timeout: 30000,
-      });
-
-      console.log(response.data);
-      return response.data
-    }
-
-    function sendUserDetail(user){
-    
-
-     localStorage.setItem("user",user)
-     location.href="userinfo.html" 
-
-
-}
-
-    
-    $(document).ready(async function () {
-        
-      
-       const users = await fetchUser();
-    
-       
-  
-      var tbl = $('.table-body');
-var td=$('<td>');
-     users.forEach(function (user) {
-        const trans=user.transactions;
-        trans.forEach(function(transac){
-            var row = $('<tr>').appendTo(tbl);
-        $('<td>').text(`${transac.from}`).appendTo(row);
-            $('<td>').text(`$${transac.amount}`).appendTo(row);
-                $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a></td>').appendTo (row);
-                tbl.appendTo($(".table"));
-
-        })
-        
-        // var row = $('<tr>').appendTo(tbl);
-        // $('<td>').text(`$${user.transactions}`).appendTo(row);
-        // $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
-       
-    
-      
-
-      })
-
-
-      
-    
-    });
-    </script>  <script>
+    <script>
     function copy() {
       /* Get the text field */
       var copyText = document.getElementById("reflink");
@@ -9496,65 +9438,78 @@ var td=$('<td>');
     }
 
   </script>
-
-<script type="text/javascript">
-    async function fetchUser() {
-      const response = await $.ajax({
-        type: "GET",
-        url: 'https://mikky-server.onrender.com/users',
-        dataType: "json",
-        timeout: 30000,
-      });
-
-      console.log(response.data);
-      return response.data
+ <script>
+    function trade(){
+    
+      $('#stat').html("Ongoing Trade")
+      $('#stat2').html("Ongoing Trade")
+    
+    
     }
-
-    function sendUserDetail(userem){
     
-
-     localStorage.setItem("userem",userem)
-     location.href="userinfo.html" 
-
-
-}
-
+        // async function fetchUserInfo() {
+        //   var parsedData = localStorage.getItem('user')
+        //   var user = JSON.parse((parsedData))
+        //   return user;
+        // }
     
-    $(document).ready(async function () {
-        
+        async function fetchUserInfo() {
+          var parsedData = localStorage.getItem('user')
+          var userFromLS = JSON.parse((parsedData))
+    
+          console.log(userFromLS);
+    
+          const response = await $.ajax({
+            type: "GET",
+            url: `https://mikky-server.onrender.com/users/${userFromLS.email}`,
+            dataType: "json",
+            timeout: 30000,
+            success: async function (data) {
+              Object.assign(currentUser, data.data)
+              await localStorage.setItem("user", JSON.stringify(data.data))
+            },
+            error: function () {
+              alert(error)
+            }
+          });
+    
+          return response.data;
+        }
+    
+        $(document).ready(async function () {
+          setTimeout(trade,30000)
+          let sum;
       
-       const users = await fetchUser();
-    
-       
-  
-      var tbl = $('.table-body');
-var td=$('<td>');
-     users.forEach(function (user) {
-        const trans=user.transactions;
-        trans.forEach(function(transac){
-            var row = $('<tr>').appendTo(tbl);
-        $('<td>').text(`${transac.from}`).appendTo(row);
-            $('<td>').text(`$${transac.amount}`).appendTo(row);
-              $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a></td>').appendTo (row);
+          const userInfo = await fetchUserInfo();
+               $("#username").html(userInfo.firstName + " " + userInfo.lastName);
+               $("#email").html(userInfo.email);
+               $("#accountBalance").html('$'+ userInfo.balance);
+               $("#profit").html('$'+ userInfo.profit);
+               $("#myInput").val(userInfo.referralCode);
               
-                tbl.appendTo($(".table"));
-
-        })
-        
-        // var row = $('<tr>').appendTo(tbl);
-        // $('<td>').text(`$${user.transactions}`).appendTo(row);
-        // $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
+              
+               var tbl = $('.table-body');
+    
+   userInfo.referredUsers.forEach(function (user) {
+      console.log(user)
+        var row = $('<tr></tr>').appendTo(tbl);
+        $('<td></td>').text(`${user}`).appendTo(row);
+	     
        
-    
+        // $('<td></td>').text(`${withdrawal.status}`).appendTo(row);
       
-
-      })
-
-
       
+         
+        tbl.appendTo($(".table"));
+   
+
+
+        });
     
-    });
-    </script>
+      });
+        
+    
+      </script>
 
   <script>
     $(document).on("click", '[data-toggle="nav-history"]', function (t) { t.preventDefault(); var e = $(this).closest("li"), i = $(".sidebar .nav.nav-history"); $(i).is(":visible") ? ($(e).removeClass("active"), $(i).removeClass("closing")) : ($(e).addClass("active"), $(i).addClass("expanding")) })
