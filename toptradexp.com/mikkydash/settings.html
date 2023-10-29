@@ -358,7 +358,7 @@
 </div>
 <div class="form-group col-md-6">
     <h5 class="text-light">Phone Number</h5>
-    <input type="text" class="form-control bg-dark text-light" value="07089784219" name="phone">
+    <input type="text" class="form-control bg-dark text-light" value="" name="phone">
 </div>
 
 <div class="form-group col-md-6">
@@ -702,10 +702,10 @@ async function fetchUserInfo() {
 
 $(document).ready(async function () {
   const userInfo = await fetchUserInfo();
-
+ $('#email').val(userInfo.email)
   $('#firstname').val(userInfo.firstName)
   $('#lastname').val(userInfo.lastName)
-  $('#email').val(userInfo.email)
+ 
   $('#country').val(userInfo.country)
  
   $('#title').html(userInfo.firstName + " " + userInfo.lastName)
