@@ -782,6 +782,8 @@
                                $("#profit").html('$'+ userInfo.profit);
                               
                                $('#lastWithdrawal').html(userInfo.withdrawals.reverse()[0].amount)
+                               $('#totalTransactions').html( userInfo.withdrawals.length+userInfo.transactions.length)
+
                     
                             //    $('#totalDeposited').html(  userInfo.transactions.forEach(element=>{sum+=Number(element.amount)}))
                     var approvedWithdrawals=0;
@@ -807,6 +809,7 @@ $('#totalWithdrawn').html("$"+approvedWithdrawals)
                      
                      
                       userInfo.transactions.forEach(element=>{totalDeposited+=Number(element.amount)})
+
                       $('#totalDeposited').html( '$'+ totalDeposited )
                 console.log(totalDeposited)
                       $('#sum').html(sum)
@@ -831,8 +834,7 @@ $('#totalWithdrawn').html("$"+approvedWithdrawals)
                       $('#lastDeposited').html('$'+ userInfo.transactions.reverse()[0].amount)
                             
                       
-                     $('#totalTransactions').html( userInfo.withdrawals.length+userInfo.transactions.length)
-
+                   
                      
                     
 })            
