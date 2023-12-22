@@ -805,10 +805,11 @@ $('#totalWithdrawn').html("$"+approvedWithdrawals)
                       let withdrawnAmount=0;
                     userInfo.withdrawals.forEach(element=>{withdrawnTotal+=eval( element.amount)})
                      
-                      userInfo.withdrawals.forEach(element=>{withdrawnAmount+=Number(element.amount)})
+                      // userInfo.withdrawals.forEach(element=>{withdrawnAmount+=Number(element.amount)})
                      
                      
                       userInfo.transactions.forEach(element=>{totalDeposited+=Number(element.amount)})
+                      alert(totalDeposited)
 
                       $('#totalDeposited').html( '$'+ totalDeposited )
                 console.log(totalDeposited)
