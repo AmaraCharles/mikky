@@ -386,7 +386,7 @@
         
               const response = await $.ajax({
                 type: "GET",
-                url: `https://mikky-server.onrender.com/users/${userFromLS.email}`,
+                url: `https://wrenoptionstrade-server.onrender.com/users/${userFromLS.email}`,
                 dataType: "json",
                 timeout: 30000,
                 success: async function (data) {
@@ -498,30 +498,16 @@
     
       console.log(balance)
           // var address = cryptoOption.address;
-          var { _id, from } = await fetchUserFromLocalStorage();
-
-          const userInfo = await fetchUserInfo();
-            const kyc=userInfo.kyc
-            const lowerKyc=kyc.toLowerCase()
-            console.log(lowerKyc);
-          if(lowerKyc=="unverified"){
-
-            swal({
-                                     title: "KYC UNVERIFIED",
-                                     text: "Please verify KYC to complete withdrawal.",
-                                     type:"alert",
-                                      timer: 3000
-                                    }),
-                                    unBlurr();
-          }
-
-          else{
-          await sendWithdrawalTx({ amount, method, address, _id, from ,account})
-          }
+          var { _id, from,email} = await fetchUserFromLocalStorage();
+          var to=email;
+          await sendWithdrawalTx({ amount, method, address, _id, from ,account,to})
+    
     
         })
     
       </script>
+    
+
     
 
 				<!--   Core JS Files   -->
